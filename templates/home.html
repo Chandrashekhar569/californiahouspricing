@@ -1,1 +1,46 @@
-<h1>Hello Word</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California House Price Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>California House Price Prediction</h1>
+    <form method="post" action="{{ url_for('predict') }}">
+        <label for="MedInc">Median Income:</label>
+        <input type="text" name="MedInc" required><br>
+
+        <label for="HouseAge">House Age:</label>
+        <input type="text" name="HouseAge" required><br>
+
+        <label for="AveRooms">Average Rooms:</label>
+        <input type="text" name="AveRooms" required><br>
+
+        <label for="AveBedrms">Average Bedrooms:</label>
+        <input type="text" name="AveBedrms" required><br>
+
+        <label for="Population">Population:</label>
+        <input type="text" name="Population" required><br>
+
+        <label for="AveOccup">Average Occupancy:</label>
+        <input type="text" name="AveOccup" required><br>
+
+        <label for="Latitude">Latitude:</label>
+        <input type="text" name="Latitude" required><br>
+
+        <label for="Longitude">Longitude:</label>
+        <input type="text" name="Longitude" required><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <h2>Prediction Result:</h2>
+        <p>{{ prediction_text }}</p>
+    {% endif %}
+
+
+</body>
+</html>
